@@ -1,0 +1,44 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+     >
+	
+	<item
+        android:id="@+id/action_sync"
+        android:title="@string/menu_sync"
+        app:showAsAction="never"
+        android:orderInCategory="0"/>
+    <item
+        android:id="@+id/action_calendars"
+        android:title="@string/menu_calendars"
+        app:showAsAction="never"
+        android:orderInCategory="1"/>
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/search"
+        android:title="@string/menu_search"
+        android:showAsAction="ifRoom|collapseActionView"
+ 		app:showAsAction="ifRoom|collapseActionView"
+ 		
+ 		android:orderInCategory="2"/>
+    <item
+        android:id="@+id/create_event"
+        android:icon="@drawable/event_add"
+        android:title="@string/create_event"
+        android:showAsAction="ifRoom|collapseActionView"
+ 		app:showAsAction="ifRoom|collapseActionView"
+ 		
+ 		android:orderInCategory="0"/>
+    <item
+        android:id="@+id/action_help"
+        android:title="@string/menu_help"
+        app:showAsAction="never"
+        android:orderInCategory="8"/>
+      
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/menu_settings"
+        app:showAsAction="never"
+        android:orderInCategory="10"/>
+     
+
+</menu>
