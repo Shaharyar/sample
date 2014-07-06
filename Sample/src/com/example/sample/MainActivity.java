@@ -4,17 +4,11 @@ package com.example.sample;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DialogFragment;
 import android.content.Intent;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnLongClickListener;
-import android.view.ViewGroup;
 import android.widget.CalendarView;
-import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.CalendarView.OnDateChangeListener;
 import android.widget.RelativeLayout;
@@ -48,29 +42,21 @@ public class MainActivity extends Activity {
         rl.addView(cal);
         
         
-    
+      //on dateChange listener
       cal.setOnDateChangeListener(new OnDateChangeListener() {
 			
 		@Override
 		public void onSelectedDayChange(CalendarView view, int y, int m,
 				int dayOfMonth) {
 			selected_date=view.getDate();
-			
-			//DialogFragment eventFragment = new CreateEvent();
-			//Bundle args=new Bundle();
-			
 			day= dayOfMonth;
 			month = ++m;
 			year= y;
-			//eventFragment.setArguments(args);
-		    //eventFragment.show(getFragmentManager(), null);
-
-			  
-		    
+		
 		}
 	});
     }
-    
+    //called by menu item with id create_event
     public void showEventDialog(CalendarView view, int year, int month,
 			int dayOfMonth)
 	{
@@ -95,18 +81,18 @@ public class MainActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
       switch (item.getItemId()) {
-      // action with ID action_refresh was selected
+      //menu item with id create_event is selected
       case R.id.create_event:
-    	  
-    	  
+
     	  this.showEventDialog(cal,year,month,day);
-    	  
         break;
-      // action with ID action_settings was selected
-      case R.id.action_settings:
-        Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT)
-            .show();
+        
+      //menu item with id action_calendars is selected  
+      case R.id.action_calendars:
+    	  Intent i = new Intent(this, Calendars.class);
+    	  startActivity(i);
         break;
+        
       default:
         break;
       }

@@ -22,12 +22,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateEvent"
-            android:label="@string/title_activity_main" >
-            
-            
+        <activity android:name=".CreateEvent">    
         </activity>
         
-    </application>
+        <activity android:name=".Calendars" >
+        </activity>
 
+    </application>
+	<uses-permission
+  		android:name="android.permission.WRITE_CALENDAR">
+   	</uses-permission>
+   	<uses-permission
+  		android:name="android.permission.READ_CALENDAR">
+  	</uses-permission>
 </manifest>
