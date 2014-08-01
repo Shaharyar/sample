@@ -36,6 +36,7 @@ public final class R {
         public static final int action_search=0x7f090032;
         public static final int action_settings=0x7f090035;
         public static final int action_sync=0x7f090030;
+        public static final int action_views=0x7f090036;
         public static final int add_reminder=0x7f090025;
         public static final int all_day=0x7f090014;
         public static final int calendar=0x7f090004;
@@ -83,6 +84,10 @@ public final class R {
         public static final int to_time=0x7f090012;
         public static final int type=0x7f090022;
         public static final int upload_file=0x7f09002c;
+        public static final int views_agenda=0x7f09003a;
+        public static final int views_day=0x7f090037;
+        public static final int views_month=0x7f090038;
+        public static final int views_year=0x7f090039;
         public static final int where=0x7f090009;
     }
     public static final class layout {
@@ -93,35 +98,40 @@ public final class R {
         public static final int main=0x7f080000;
     }
     public static final class string {
-        public static final int add_reminder=0x7f060017;
-        public static final int all_day=0x7f060012;
+        public static final int add_reminder=0x7f06001b;
+        public static final int agenda=0x7f06000f;
+        public static final int all_day=0x7f060016;
         public static final int app_name=0x7f060000;
         public static final int calendar=0x7f06000b;
         public static final int cancel=0x7f06000a;
-        public static final int choose_your_file=0x7f06001a;
+        public static final int choose_your_file=0x7f06001e;
         public static final int create_event=0x7f060008;
-        public static final int description=0x7f060014;
+        public static final int day=0x7f06000c;
+        public static final int description=0x7f060018;
         public static final int done=0x7f060009;
-        public static final int event=0x7f06000c;
-        public static final int files=0x7f060019;
-        public static final int from=0x7f060010;
-        public static final int guests=0x7f060013;
+        public static final int event=0x7f060010;
+        public static final int files=0x7f06001d;
+        public static final int from=0x7f060014;
+        public static final int guests=0x7f060017;
         public static final int hello_world=0x7f060001;
-        public static final int hint_what=0x7f06000d;
-        public static final int location=0x7f06000f;
+        public static final int hint_what=0x7f060011;
+        public static final int location=0x7f060013;
         public static final int menu_calendars=0x7f060004;
         public static final int menu_help=0x7f060005;
         public static final int menu_search=0x7f060003;
         public static final int menu_settings=0x7f060006;
         public static final int menu_sync=0x7f060002;
-        public static final int privacy=0x7f06001b;
-        public static final int reminder=0x7f060016;
-        public static final int repetition=0x7f060015;
-        public static final int show_me_as=0x7f060018;
+        public static final int month=0x7f06000d;
+        public static final int privacy=0x7f06001f;
+        public static final int reminder=0x7f06001a;
+        public static final int repetition=0x7f060019;
+        public static final int show_me_as=0x7f06001c;
         public static final int title_activity_main=0x7f060007;
-        public static final int to=0x7f060011;
-        public static final int upload=0x7f06001c;
-        public static final int where=0x7f06000e;
+        public static final int to=0x7f060015;
+        public static final int upload=0x7f060020;
+        public static final int view=0x7f060021;
+        public static final int where=0x7f060012;
+        public static final int year=0x7f06000e;
     }
     public static final class style {
         /** 

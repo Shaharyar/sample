@@ -22,7 +22,7 @@
         android:icon="@drawable/event_add"
         android:title="@string/create_event"
         android:showAsAction="always"
- 		android:orderInCategory="0"/>
+ 		android:orderInCategory="1"/>
     <item
         android:id="@+id/action_help"
         android:title="@string/menu_help"
@@ -32,6 +32,31 @@
         android:id="@+id/action_settings"
         android:title="@string/menu_settings"
         android:orderInCategory="10"/>
-     
+    <item
+    android:id="@+id/action_views"
+    android:showAsAction="always"
+    android:orderInCategory="0"
+    android:title="@string/view">
+    <menu>
+        <item
+            android:id="@+id/views_day"
+            android:orderInCategory="0"
+            android:title="@string/day" />
+        
+        <item
+            android:id="@+id/views_month"
+            android:orderInCategory="1"
+            android:title="@string/month" />
+        <item
+            android:id="@+id/views_year"
+            android:orderInCategory="2"
+            android:title="@string/year" />
+        <item
+            android:id="@+id/views_agenda"
+            android:orderInCategory="3"
+            android:title="@string/agenda" />
+        
+    </menu>
+</item> 
 
 </menu>

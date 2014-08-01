@@ -89,10 +89,13 @@ public class MainActivity extends Activity {
         
       //menu item with id action_calendars is selected  
       case R.id.action_calendars:
-    	  Intent i = new Intent(this, Calendars.class);
-    	  startActivity(i);
+    	  Intent calendar_intent = new Intent(this, Calendars.class);
+    	  startActivity(calendar_intent);
         break;
-        
+      case R.id.views_agenda:
+    	  Intent agenda_intent = new Intent(this, Agenda.class);
+    	  startActivity(agenda_intent);
+        break; 
       default:
         break;
       }
