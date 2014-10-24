@@ -1,8 +1,11 @@
-package com.example.sample;
+package com.meetingmatch.main;
 
 
 
 import java.util.Calendar;
+
+import com.example.sample.R;
+
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -111,6 +114,30 @@ public class MainActivity extends Activity {
     	  Intent calendar_intent = new Intent(this, Calendars.class);
     	  startActivity(calendar_intent);
         break;
+      case R.id.views_day:
+    	  Intent day_intent = new Intent(this, DayView.class);
+    	  day_intent.putExtra("day", day);
+    	  day_intent.putExtra("month", month);
+    	  day_intent.putExtra("year", year);
+    	  
+    	  startActivity(day_intent);
+        break; 
+      case R.id.views_month:
+    	  Intent month_intent = new Intent(this, MonthView.class);
+    	  month_intent.putExtra("day", day);
+    	  month_intent.putExtra("month", month);
+    	  month_intent.putExtra("year", year);
+    	  
+    	  startActivity(month_intent);
+        break; 
+      case R.id.views_year:
+    	  Intent year_intent = new Intent(this, YearView.class);
+    	  year_intent.putExtra("day", day);
+    	  year_intent.putExtra("month", month);
+    	  year_intent.putExtra("year", year);
+    	  
+    	  startActivity(year_intent);
+        break; 
       case R.id.views_agenda:
     	  Intent agenda_intent = new Intent(this, Agenda.class);
     	  startActivity(agenda_intent);

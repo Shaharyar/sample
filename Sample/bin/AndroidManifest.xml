@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="com.meetingmatch.main.MainActivity"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,19 +22,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateEvent">    
+        <activity android:name="com.meetingmatch.main.CreateEvent">    
         </activity>
         
-        <activity android:name=".Calendars" >
+        <activity android:name="com.meetingmatch.main.Calendars" >
         </activity>
-		 <activity android:name=".Agenda" >
+		<activity android:name="com.meetingmatch.main.Agenda" >
         </activity>
-      
+        <activity android:name="com.meetingmatch.main.DayView" >
+        </activity>
+        <activity android:name="com.meetingmatch.main.MonthView" >
+        </activity>
+      	<activity android:name="com.meetingmatch.main.YearView" >
+        </activity>
+        
     </application>
 	<uses-permission
   		android:name="android.permission.WRITE_CALENDAR">
    	</uses-permission>
    	<uses-permission
   		android:name="android.permission.READ_CALENDAR">
+  	</uses-permission>
+  	<uses-permission android:name="android.permission.READ_CONTACTS" >
   	</uses-permission>
 </manifest>

@@ -1,17 +1,23 @@
-package com.example.sample;
+package com.meetingmatch.main;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import com.example.sample.R;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnKeyListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,11 +51,11 @@ public class CreateEventDialog extends DialogFragment  {
 		return year;
 	}
 
-	public void setYear(int hour) {
-		this.hour = hour;
+	public void setYear(int year) {
+		this.year = year;
 	}
 	public int getHour() {
-		return year;
+		return hour;
 	}
 
 	public void setHour(int hour) {
@@ -96,6 +102,7 @@ public class CreateEventDialog extends DialogFragment  {
 				CreateEvent ce=new CreateEvent();
 				ce.setData(getActivity(),view);
 				ce.addCalendarEvent();
+				
 				Toast.makeText(getActivity(), "Event Created Successfully", Toast.LENGTH_LONG).show();
 
 			}
@@ -127,7 +134,7 @@ public class CreateEventDialog extends DialogFragment  {
 		final EditText from_month=(EditText) view.findViewById(R.id.from_month);
 		final EditText from_year=(EditText) view.findViewById(R.id.from_year);
 		from_day.setText(Integer.toString(getDay()));
-		from_month.setText(Integer.toString(getMonth()));
+		from_month.setText(Integer.toString(getMonth()-1));
 		from_year.setText(Integer.toString(getYear()));
 		
 		from_date.setOnClickListener(new OnClickListener(){
@@ -140,7 +147,7 @@ public class CreateEventDialog extends DialogFragment  {
 				setDay(Integer.parseInt(from_day.getText().toString()));
 				setMonth(Integer.parseInt(from_month.getText().toString()));
 				setYear(Integer.parseInt(from_year.getText().toString()));
-				dpdf.showDatePickerDialogFragment(getActivity(),day,month,year,view);
+				dpdf.showDatePickerDialogFragment(getActivity(),day,month+1,year,view);
 			}	    	
 		});
 		//End of from date spinner
@@ -150,12 +157,14 @@ public class CreateEventDialog extends DialogFragment  {
 		final EditText from_hour=(EditText) view.findViewById(R.id.from_hour);
 		final EditText from_minute=(EditText) view.findViewById(R.id.from_minute);
 		final EditText from_am_pm=(EditText) view.findViewById(R.id.from_am_pm);
-		
+
 		if(am_pm==0){
 			from_time.setText(hour+":"+minute+" AM");	
 			from_hour.setText(Integer.toString(getHour()));
 			from_minute.setText(Integer.toString(getMinute()));
 			from_am_pm.setText("AM");
+			//Toast.makeText(getActivity(),  "sample"+from_am_pm.getText().toString().trim(), Toast.LENGTH_SHORT).show();
+
 		}
 		else if(am_pm==1){
 			from_time.setText((hour)+":"+minute+" PM");	
@@ -192,7 +201,7 @@ public class CreateEventDialog extends DialogFragment  {
 		final EditText to_month=(EditText) view.findViewById(R.id.to_month);
 		final EditText to_year=(EditText) view.findViewById(R.id.to_year);
 		to_day.setText(Integer.toString(getDay()));
-		to_month.setText(Integer.toString(getMonth()));
+		to_month.setText(Integer.toString(getMonth()-1));
 		to_year.setText(Integer.toString(getYear()));
 		to_date.setOnClickListener(new OnClickListener(){
 
@@ -207,7 +216,7 @@ public class CreateEventDialog extends DialogFragment  {
 
 				setYear(Integer.parseInt(to_year.getText().toString()));
 
-				dpdf.showDatePickerDialogFragment(getActivity(),day,month,year,view);
+				dpdf.showDatePickerDialogFragment(getActivity(),day,month+1,year,view);
 			}	    	
 		});
 		//End of to date spinner
@@ -251,6 +260,38 @@ public class CreateEventDialog extends DialogFragment  {
 			}	    	
 		});
 		//End of to time spinner
+		
+		//guests
+		EditText guests_editText=(EditText)view.findViewById(R.id.guests);
+		guests_editText.addTextChangedListener(new TextWatcher() {
+
+			
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+				Toast.makeText(getActivity(),  "sample", Toast.LENGTH_SHORT).show();
+
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before,
+					int count) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
+		
+		
+		//end of guests
 
 		//show me as spinner
 		Spinner show_me_as_spinner = (Spinner) view.findViewById(R.id.show_me_as); 
