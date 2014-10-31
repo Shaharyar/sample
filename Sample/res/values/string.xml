@@ -29,6 +29,7 @@
     <string name="to">To</string>
     <string name="all_day">All day</string>
     <string name="guests">Guests</string>
+    <string name="add_guests">Add</string>
     <string name="description">Description</string>
     <string name="repetition">Repetition</string>
     <string name="reminder">Reminder</string>

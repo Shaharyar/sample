@@ -1,37 +1,41 @@
 package com.meetingmatch.main;
 
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 import com.example.sample.R;
+import com.meetingmatch.contact.Contacts;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnKeyListener;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
 public class CreateEventDialog extends DialogFragment  {
-	
 	private AlertDialog.Builder  builder;
 	private Spinner cal_spinner;
 	private Long selected_date;
 	private int day,month,year,hour,minute, am_pm;
-
+	private static final Pattern EMAIL_PATTERN = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", Pattern.CASE_INSENSITIVE);
+	private ArrayList<String> email_list=new ArrayList<String>();
 	public int getDay() {
 		return day;
 	}
@@ -101,7 +105,8 @@ public class CreateEventDialog extends DialogFragment  {
 				// FIRE ZE MISSILES!
 				CreateEvent ce=new CreateEvent();
 				ce.setData(getActivity(),view);
-				ce.addCalendarEvent();
+					
+				ce.addCalendarEvent(email_list);
 				
 				Toast.makeText(getActivity(), "Event Created Successfully", Toast.LENGTH_LONG).show();
 
@@ -261,30 +266,41 @@ public class CreateEventDialog extends DialogFragment  {
 		});
 		//End of to time spinner
 		
+		//guests_listView
+		final TextView guests_listView_txt=(TextView)view.findViewById(R.id.guests_listView);
+		
+		//end of guests_listView
+		
+		
 		//guests
-		EditText guests_editText=(EditText)view.findViewById(R.id.guests);
-		guests_editText.addTextChangedListener(new TextWatcher() {
+		final AutoCompleteTextView  guests_text=(AutoCompleteTextView )view.findViewById(R.id.guests);
+		guests_text.addTextChangedListener(new TextWatcher() {
 
 			
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count,
 					int after) {
 				// TODO Auto-generated method stub
-				Toast.makeText(getActivity(),  "sample", Toast.LENGTH_SHORT).show();
-
 			}
 
+			@SuppressLint("NewApi")
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before,
 					int count) {
 				// TODO Auto-generated method stub
+				//Toast.makeText(getActivity(),  "on"+String.valueOf(s), Toast.LENGTH_SHORT).show();
+				Contacts c=new Contacts();
+				String[] contacts=new String[3];
+				contacts=c.getContacts(view,String.valueOf(s));
+				ArrayAdapter adapter = new ArrayAdapter(view.getContext().getApplicationContext(),android.R.layout.simple_list_item_1, contacts);	
+				guests_text.setAdapter(adapter);
 				
 			}
 
 			@Override
 			public void afterTextChanged(Editable s) {
 				// TODO Auto-generated method stub
-				
+			
 			}
 			
 		});
@@ -293,6 +309,29 @@ public class CreateEventDialog extends DialogFragment  {
 		
 		//end of guests
 
+		
+		//guests add_button
+		Button guest_add_btn=(Button) view.findViewById(R.id.add_guests);
+		guest_add_btn.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				if(EMAIL_PATTERN.matcher(guests_text.getText().toString()).matches()){
+					email_list.add(guests_text.getText().toString().trim());
+					guests_listView_txt.append("\n"+guests_text.getText().toString().trim());
+					guests_text.setText("");
+
+
+				}
+				else
+					Toast.makeText(getActivity(),"Invalid email!",Toast.LENGTH_SHORT).show();
+
+			}	
+		});
+		//end of guests add_button
+		
+		
 		//show me as spinner
 		Spinner show_me_as_spinner = (Spinner) view.findViewById(R.id.show_me_as); 
 		// Create an ArrayAdapter using the string array and a default spinner layout 

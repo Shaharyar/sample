@@ -21,7 +21,7 @@ import android.widget.Toast;
 
  
 public class MainActivity extends Activity {
-	
+	private static MainActivity ma;
 	private RelativeLayout rl;
 	private CalendarView cal;
 	private Long selected_date;
@@ -147,5 +147,8 @@ public class MainActivity extends Activity {
       }
 
       return true;
-    } 
+    }
+	public static MainActivity getMa() {
+		return ma;
+	}
 }

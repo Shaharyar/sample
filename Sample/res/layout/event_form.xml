@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+  <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@+id/ScrollView"
+      android:layout_width="match_parent"
+      android:layout_height="fill_parent"
+      android:scrollbarStyle="outsideOverlay" >
 
-  <ScrollView android:id="@+id/ScrollView"
-			android:layout_width="fill_parent"
-			android:layout_height="fill_parent"
-			android:scrollbarStyle="outsideOverlay"
-			xmlns:android="http://schemas.android.com/apk/res/android">
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -162,7 +162,39 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2" />
         </TableRow>
+		<TableRow
+            android:id="@+id/tableRow6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+			 <TextView 
+        		android:textSize="14.0sp" 
+        		android:textColor="@color/grey" 
+        		android:gravity="center_vertical" 
+        		android:id="@+id/space1" 
+        		android:paddingTop="4.0dip" 
+        		android:paddingBottom="4.0dip" 
+        		android:layout_width="match_parent"
+        		android:layout_height="wrap_content" 
+        		android:layout_marginLeft="4.0dip" 
+        		android:layout_marginRight="4.0dip" 
+        		android:singleLine="true" />
+            <TextView
+                android:id="@+id/guests_listView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4.0dip"
+                android:layout_marginRight="4.0dip"
+                android:gravity="center_vertical"
+                android:paddingBottom="4.0dip"
+                android:paddingTop="4.0dip"
+                android:singleLine="false"
+                android:textColor="@color/grey"
+                android:textSize="14.0sp" />
 
+    	</TableRow>
+        
+		
+		
         <TableRow
             android:id="@+id/tableRow7"
             android:layout_width="fill_parent"
@@ -180,7 +212,7 @@
         		android:layout_marginRight="4.0dip" 
         		android:singleLine="true" 
         		android:text="@string/guests"/>
-    		<EditText 
+    		<AutoCompleteTextView  
         		android:id="@+id/guests" 
         		android:paddingTop="4.0dip" 
         		android:paddingBottom="4.0dip" 
@@ -189,6 +221,14 @@
         		android:singleLine="true"
         		android:layout_weight="5"
         		android:hint="@string/guests" />
+    		<Button
+    		    android:id="@+id/add_guests"
+    		    style="?android:attr/buttonStyleSmall"
+    		    android:paddingTop="4.0dip" 
+        		android:paddingBottom="4.0dip" 
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+    		    android:text="@string/add_guests" />
         </TableRow>
         <TableRow
             android:id="@+id/tableRow8"
