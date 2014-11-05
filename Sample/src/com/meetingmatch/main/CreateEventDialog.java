@@ -121,7 +121,7 @@ public class CreateEventDialog extends DialogFragment  {
 
 		//Calendar spinner
 		CalendarQuery cq=new CalendarQuery();
-		String[] cal=(String[]) cq.getAllCalendar(getActivity().getContentResolver());
+		String[] cal=(String[]) cq.getAllCalendarByName(getActivity().getContentResolver());
 
 		cal_spinner = (Spinner)view.findViewById(R.id.calendar);
 
