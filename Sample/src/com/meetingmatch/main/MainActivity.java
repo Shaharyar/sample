@@ -10,7 +10,9 @@ import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CalendarView;
@@ -75,12 +77,11 @@ public class MainActivity extends Activity {
 		}
 	});
     }
-    //called by menu item with id create_event
+	 //called by menu item with id create_event
     public void showEventDialog(CalendarView view, int year, int month,
 			int dayOfMonth,int hour, int minute, int am_pm)
 	{
 		Long selected_date=view.getDate();
-		
 		DialogFragment eventFragment = new CreateEventDialog();
 		Bundle args=new Bundle();
 		args.putLong("selected_date", selected_date);
@@ -93,7 +94,7 @@ public class MainActivity extends Activity {
 		eventFragment.setArguments(args);
 	    eventFragment.show(getFragmentManager(), null);
 	}
- 
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
@@ -151,4 +152,6 @@ public class MainActivity extends Activity {
 	public static MainActivity getMa() {
 		return ma;
 	}
+
+	
 }

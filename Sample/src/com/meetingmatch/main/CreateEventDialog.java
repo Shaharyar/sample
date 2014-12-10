@@ -1,5 +1,6 @@
 package com.meetingmatch.main;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -9,14 +10,19 @@ import com.example.sample.R;
 import com.meetingmatch.contact.Contacts;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,18 +30,24 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
 public class CreateEventDialog extends DialogFragment  {
+	
 	private AlertDialog.Builder  builder;
 	private Spinner cal_spinner;
 	private Long selected_date;
 	private int day,month,year,hour,minute, am_pm;
 	private static final Pattern EMAIL_PATTERN = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", Pattern.CASE_INSENSITIVE);
+	Context c ;
 	private ArrayList<String> email_list=new ArrayList<String>();
+	private static final int FILE_SELECT_CODE = 0;
+	private static final String TAG = null;
+
 	public int getDay() {
 		return day;
 	}
@@ -89,6 +101,7 @@ public class CreateEventDialog extends DialogFragment  {
 		hour=this.getArguments().getInt("hour");
 		minute=this.getArguments().getInt("minute");
 		am_pm=this.getArguments().getInt("am_pm");
+		c =this.getActivity().getApplicationContext();
 
 		Calendar calendar=Calendar.getInstance();
 		final Date date = calendar.getTime();
@@ -330,8 +343,28 @@ public class CreateEventDialog extends DialogFragment  {
 			}	
 		});
 		//end of guests add_button
+		/*
+		//upload_file button
+		Button upload_file_button=(Button)view.findViewById(R.id.upload_file);
+		upload_file_button.setOnClickListener(new OnClickListener(){
+		private String m_chosenDir = "";
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			Intent intent = new Intent();*/  
+		//	intent.setType("*/*");  
+		/*	intent.setAction(Intent.ACTION_GET_CONTENT); 
+			
+			startActivityForResult(Intent.createChooser(intent, "Choose File"), 1);	
+		}
+	
+		});
 		
+
+		//end of upload_file button
 		
+		*/
 		//show me as spinner
 		Spinner show_me_as_spinner = (Spinner) view.findViewById(R.id.show_me_as); 
 		// Create an ArrayAdapter using the string array and a default spinner layout 
@@ -353,7 +386,7 @@ public class CreateEventDialog extends DialogFragment  {
 
 		privacy_spinner.setAdapter(privacy_adapter);
 		//End of privacy spinner
-
+/*
 		//reminder_time spinner
 		Spinner reminder_time_spinner = (Spinner) view.findViewById(R.id.reminder_time); 
 		// Create an ArrayAdapter using the string array and a default spinner layout 
@@ -378,7 +411,7 @@ public class CreateEventDialog extends DialogFragment  {
 		//End of reminder_type spinner
 		
 		
-
+*/
 		// Create the AlertDialog object and return it
 		return builder.create();
 	}

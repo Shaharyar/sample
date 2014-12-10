@@ -35,7 +35,15 @@
         </activity>
       	<activity android:name="com.meetingmatch.main.YearView" >
         </activity>
-        
+        <activity android:name="com.meetingmatch.share.Share" 
+            	  android:theme="@android:style/Theme.Holo.Light.Dialog">
+        </activity>
+        <activity android:name="com.meetingmatch.share.EditEvents" 
+            	  android:theme="@android:style/Theme.Holo.Light.Dialog">
+        </activity>
+        <activity android:name="com.meetingmatch.share.ViewEvents" 
+            	  android:theme="@android:style/Theme.Holo.Light.Dialog">
+        </activity>
     </application>
 	<uses-permission
   		android:name="android.permission.WRITE_CALENDAR">
@@ -45,4 +53,5 @@
   	</uses-permission>
   	<uses-permission android:name="android.permission.READ_CONTACTS" >
   	</uses-permission>
+  	<uses-permission android:name="android.permission.SEND_SMS"/>
 </manifest>

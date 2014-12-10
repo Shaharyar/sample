@@ -23,7 +23,7 @@ public class Calendars extends ListActivity {
     context=this;
     
     ListView lv=(ListView) findViewById(android.R.id.list);
-    lv.setAdapter(new CalendarAdapter(this,cal,cal[0].length ));
+    lv.setAdapter(new CalendarAdapter(this,cal,cal[0].length ,getFragmentManager(),getContentResolver()));
   }
   
 

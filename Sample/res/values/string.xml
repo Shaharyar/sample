@@ -4,7 +4,7 @@
 
     <string name="app_name">Meeting Match</string>
     <string name="hello_world">Hello world!</string>
-    
+    <string name="hello">Hello World, FileExplore!</string>
     <string name="menu_sync">Sync</string>
     <string name="menu_search">Search</string>
     <string name="menu_calendars">Calendars</string>
@@ -40,4 +40,10 @@
     <string name="privacy">Privacy</string>
     <string name="upload">Upload</string>
     <string name="view">View</string>
+    
+    <string name="choose_action">Choose Action</string>
+    
+    <string name="people">People</string>
+    <string name="share_with">Share with</string>
+    <string name="share">Share</string>
 </resources>

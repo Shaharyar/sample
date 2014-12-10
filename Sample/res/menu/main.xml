@@ -11,12 +11,7 @@
         android:title="@string/menu_calendars"
 
         android:orderInCategory="1"/>
-    <item
-        android:id="@+id/action_search"
-        android:icon="@drawable/search"
-        android:title="@string/menu_search"
-        android:showAsAction="always"
- 		android:orderInCategory="2"/>
+   
     <item
         android:id="@+id/create_event"
         android:icon="@drawable/event_add"
@@ -27,11 +22,7 @@
         android:id="@+id/action_help"
         android:title="@string/menu_help"
         android:orderInCategory="8"/>
-      
-    <item
-        android:id="@+id/action_settings"
-        android:title="@string/menu_settings"
-        android:orderInCategory="10"/>
+    
     <item
     android:id="@+id/action_views"
     android:showAsAction="always"
@@ -55,6 +46,7 @@
             android:id="@+id/views_agenda"
             android:orderInCategory="3"
             android:title="@string/agenda" />
+        
         
     </menu>
 </item> 
